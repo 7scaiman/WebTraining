@@ -1,0 +1,27 @@
+.UserList{
+    padding: 24px;
+}
+.error{
+    color: red;
+}
+.no-data{
+    color: lightgrey;
+}
+.table, th, td{
+    border: 1px solid;
+}
+
+td {
+    padding: 8px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
