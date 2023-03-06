@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+.Navigation{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  background-color: darkgrey;
+  padding-bottom: 50px;
+}
+.Navigation a{
+  text-decoration: underline;
+  padding-right: 30px;
+  color: whitesmoke;
+}
+.NavLink{
+  margin-top: 30px;
+}
+.Create{
+  display: flex;
+  flex-direction: column;
+
+}
+.Create input{
+  width: 150px;
+  margin-left: 920px;
+}
+.Create input,select{
+  width: 150px;
+  margin-left: 920px;
+}
+.Create button{
+  width: 150px;
+  margin-left: 920px;
+  margin-top: 15px;
+}
+.Address{
+  margin-top: 50px;
+}
+
+.typeImg{
+  height: 100px;
+}
+.deleteImg{
+  height: 30px;
+  cursor: pointer;
+}
