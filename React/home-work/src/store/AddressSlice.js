@@ -1,30 +1,33 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
+import {API_URL} from "../Constants/Contstants";
 
+export const fetchAddress = createAsyncThunk(
+    'address/fetchAddress',
+    async function (_,{rejectWithValue}){
+
+        try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok){
+            throw new Error("Server Error")
+        }
+
+
+        const data =await response.json();
+        return data;
+        }
+        catch (error){
+        return rejectWithValue(error.message)
+        }
+    }
+);
 
 const  addressSlice = createSlice({
     name:'address',
     initialState:{
-        address:[{
-            Country: "Macao",
-            City: "Abshireshire",
-            Street: "Howell Dam",
-            AddressType: true,
-            id: 1
-        },
-            {
-                Country: "Chad",
-                City: "San Tan Valley",
-                Street: "Pauline Oval",
-                AddressType: false,
-                id: 2
-            },
-            {
-                Country: "Antarctica (the territory South of 60 deg S)",
-                City: "East Alyssonstad",
-                Street: "Bergnaum Walks",
-                AddressType: false,
-                id: 3
-            }]
+        address:[],
+        status: null,
+        error: null,
     },
     reducers: {
         addAddress(state,action) {
@@ -42,6 +45,20 @@ const  addressSlice = createSlice({
            state.address = state.address.filter(i => i.id !== action.payload)
         },
     },
+    extraReducers:{
+        [fetchAddress.pending]: (state,action) => {
+            state.status = "loading"
+            state.error = null;
+        },
+        [fetchAddress.fulfilled]: (state,action) => {
+            state.status = "resolved";
+            state.address = action.payload;
+        },
+        [fetchAddress.rejected]: (state,action) => {
+            state.status = "rejected";
+            state.error = action.payload;
+        }
+    }
 })
 
 export const {addAddress,deleteAddress} = addressSlice.actions;
