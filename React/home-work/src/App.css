@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  max-width: 1900px;
 }
 
 .Navigation{
@@ -37,7 +38,8 @@
   margin-top: 15px;
 }
 .Address{
-  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .typeImg{
@@ -46,4 +48,17 @@
 .deleteImg{
   height: 30px;
   cursor: pointer;
+}
+.flex{
+  display: flex;
+}
+.item{
+  margin-top: 50px;
+  margin-left: 50px;
+  border-color: black;
+  border-style: solid;
+  padding: 50px;
+}
+.MainPage{
+  flex-wrap: wrap;
 }

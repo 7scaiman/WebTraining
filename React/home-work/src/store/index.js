@@ -1,14 +1,7 @@
 import {configureStore, createAsyncThunk} from "@reduxjs/toolkit";
-import {AddressApi} from "./AddressApi";
-
-
-export  const  fetch = createAsyncThunk(
-
-)
+import addressReducer from "./AddressSlice";
 export const store = configureStore({
     reducer: {
-        [AddressApi.reducerPath]: AddressApi.reducer,
-
-
+        address:addressReducer,
     }
 })

@@ -1,34 +1,19 @@
 // noinspection JSCheckFunctionSignatures
 
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-function CreateNewAddress({addAddress}) {
-    const Submit = (e) => {
+function CreateNewAddress({addAddress,newAddress,setNewAddress,handleChange}) {
+        const Submit = (e) => {
         e.preventDefault()
         if(newAddress.Country !== "" && newAddress.City !== "" && newAddress.Street !== ""){
-            addAddress(newAddress)
+            addAddress()
         }
         else{
           return   alert("You didn't fill it all the way")
         }
     }
 
-    const handleChange = (e) => {
-       if(e.target.value== "Office" ){
-           setNewAddress({...newAddress,AddressType: true})
-       }
-        if(e.target.value== "Home" ){
-            setNewAddress({...newAddress,AddressType: false})
-        }
-    }
-    const [newAddress,setNewAddress] = useState({
-        Country: "",
-        City: "",
-        Street: "",
-        AddressType: false,
-        id: 0
 
-    })
     return (
         <div>
             <form className="Create">

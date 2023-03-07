@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import Address from "./Address";
-
-function MainPage({addresses, deletePage}) {
+import {useSelector} from "react-redux";
+function MainPage({deletePage}) {
+    const addresses = useSelector(state => state.address.address );
 
 
     return (
-        <div>
+        <div className="MainPage">
+        <div className="Address">
             {addresses.map(
-                (e) => <Address Country={e.Country} City={e.City} Street={e.Street} AddressType={e.AddressType} id={e.id} deletePage={deletePage}/>
+                (e) => <Address key={e.id} Country={e.Country} City={e.City} Street={e.Street}
+                                AddressType={e.AddressType} id={e.id} deletePage={deletePage}/>
             )}
+        </div>
         </div>
     );
 }
