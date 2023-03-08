@@ -37,7 +37,7 @@ function App() {
             Country: "",
             City: "",
             Street: "",
-            AddressType: true,
+            AddressType: newAddress.AddressType,
             id: 0
         })
     }
