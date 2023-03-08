@@ -27,14 +27,19 @@ function App() {
         Country: "",
         City: "",
         Street: "",
-        AddressType: false,
+        AddressType: true,
         id: 0
 
     })
-
-
-    const deletePage = (id) => {
-          // setAddresses(addresses.filter(i => i.id !== id))
+    const addAd = () => {
+        addTask()
+        setNewAddress({
+            Country: "",
+            City: "",
+            Street: "",
+            AddressType: true,
+            id: 0
+        })
     }
   return (
     <div className="App">
@@ -42,7 +47,7 @@ function App() {
         <Routes>
             <Route path={"/"} element={<MainPage status={status} error={error} />}/>
             <Route path={"/CreateNewAddress"} element={
-                <CreateNewAddress handleChange={handleChange} addAddress={addTask}
+                <CreateNewAddress handleChange={handleChange} addAddress={addAd}
                                   newAddress={newAddress} setNewAddress={setNewAddress}
                 />}/>
         </Routes>

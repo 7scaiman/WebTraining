@@ -1,0 +1,35 @@
+<div class="card">
+
+  <div>
+  <h1 >{{number}}</h1>
+  <button (click)="increment()">Increment</button>
+  <button (click)="decrement()">Decrement</button>
+  </div>
+
+  <div>
+  <img [src]="imgUrl">
+  <h2 [ngStyle]="{
+  color: card.name.length < 7 ? 'blue' : 'red',
+  fontWeight: card.name.length < 7 ? 'normal' : 'bold'
+  }">{{index}} {{card.name}}</h2>
+  <button [disabled]="disabled">Enable</button>
+  </div>
+
+  <div>
+<!--    <input type="text" #myInput [value]="name" (input)="changeHandle(myInput.value)"/>-->
+    <input type="text" [(ngModel)]="card.name" >
+  </div>
+
+  <div>
+
+    <h1 [ngStyle]="{
+    color: color
+    }">{{card.title}}</h1>
+      <input type="text"  [(ngModel)]="newColor">
+    <button (click)="setColor()">Set color blue</button>
+  </div>
+  <div>
+    <strong>{{cardDate | date}}</strong>
+  </div>
+</div>
+
